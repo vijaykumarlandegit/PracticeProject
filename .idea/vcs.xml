@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="VcsDirectoryMappings" defaultProject="true" />
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ComposeProject" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/First-Compose" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Just" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Lokal-Solution-" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Reshim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ReziRent" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Secret-Diary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dude_essentials" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/medito-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/presence-mental-wellbeing-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/unbound_publisher_app" vcs="Git" />
+  </component>
 </project>
