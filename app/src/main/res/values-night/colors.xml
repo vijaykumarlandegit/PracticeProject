@@ -4,6 +4,7 @@
     <color name="white">#000000</color>
     <color name="green">#18AD07</color>
     <color name="blue">#021789</color>
+    <color name="orange">#DB5C05</color>
     <color name="colorPrimary">#90CAF9</color>   <!-- Light Blue -->
     <color name="colorBackground">#121212</color>
     <color name="colorOnBackground">#FFFFFF</color>

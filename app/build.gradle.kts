@@ -7,6 +7,10 @@ android {
     namespace = "com.practice.practiceproject"
     compileSdk = 36
 
+    buildFeatures{
+        viewBinding=true
+    }
+
     defaultConfig {
         applicationId = "com.practice.practiceproject"
         minSdk = 24
