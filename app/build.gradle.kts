@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -61,4 +63,16 @@ dependencies {
 
     implementation(libs.hilt.lifecycle.viewmodel)
     kapt(libs.hilt.androidx.compiler)
+
+    // Firebase BoM
+    implementation(platform(libs.firebase.bom))
+
+    // Firebase products
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.database)
 }
