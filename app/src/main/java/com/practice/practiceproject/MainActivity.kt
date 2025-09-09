@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityMainBinding
     lateinit var userAdapter: UserAdapter
+    private val userViewmodel : UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +33,14 @@ class MainActivity : AppCompatActivity() {
         }
         val userList : MutableList<UserData> =
         mutableListOf(
-            UserData("Vijay",25,"B.Tech"),
-            UserData("Rahul",22,"M.Tech"),
-            UserData("Pratik",25,"BSC"),
-            UserData("Prasad",23,"MBBS"),
-            UserData("Ravi",24,"MD"),
-            UserData("Pawan",22,"B.Com"),
+            UserData("Vijay",25,"B.Tech", "male"),
+            UserData("Rahul",22,"M.Tech","male"),
+            UserData("Pratik",25,"BSC","male"),
+            UserData("Sai",85,"BSC","female"),
+            UserData("Prasad",23,"MBBS","male"),
+            UserData("Ravi",24,"MD","male"),
+            UserData("SaiBai",85,"BSC","female"),
+            UserData("Pawan",22,"B.Com","male"),
         )
         userAdapter= UserAdapter()
         binding.recyclerView.adapter=userAdapter
@@ -45,31 +49,25 @@ class MainActivity : AppCompatActivity() {
         // binding.recyclerView.layoutManager= GridLayoutManager(this, 2)
        // binding.recyclerView.layoutManager=  GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false)
 
-//        lifecycleScope.launch {
-//            delay(2000)
-//            userList.add(UserData("Pooja",23, "12th"))
-//            userAdapter.updateList(userList)
-//        }
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            userList.add(UserData("Pooja",23, "12th"))
-//            userAdapter.updateList(userList)
-//        },2000)
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            userAdapter.addUser(UserData("Pooja", 23, "12th"))
-//        }, 2000)
+
         userAdapter.submitList(userList)
 
          Handler(Looper.getMainLooper()).postDelayed({
             val newList = userAdapter.currentList.toMutableList()
-            newList.add(UserData("Pooja", 23, "12th"))
+            newList.add(UserData("Pooja", 23, "12th","female"))
              userAdapter.submitList(newList)
         }, 2000)
 
         Handler(Looper.getMainLooper()).postDelayed({
             val newList = userAdapter.currentList.toMutableList()
-            newList.add(UserData("Babu", 43, "6th"))
+            newList.add(UserData("Babu", 43, "6th","female"))
             userAdapter.submitList(newList)
         }, 5000)
+
+        userViewmodel.count.observe(this@MainActivity){ countValue ->
+            binding.countTv.text= countValue.toString()
+        }
+        userViewmodel.increaseCounter()
 
     }
 }
